@@ -9,7 +9,7 @@ import { ClienteService, Cliente } from '../services/cliente.service';
 export class ClienteNovoComponent implements OnInit {
 
   @Input()
-  cliente: Cliente = { nome: '', saldo: 0, data: new Date() };
+  cliente: Cliente = new Cliente();
 
   //retornar novo cliente para outros componentes ou avisar do evento
   @Output()
@@ -25,7 +25,7 @@ export class ClienteNovoComponent implements OnInit {
     this.cliente = {
       nome: '',
       saldo: 0,
-      data: new Date(),
+      data: new Date().toString(),
     };
     this.onSubmit.emit(copy);
   }

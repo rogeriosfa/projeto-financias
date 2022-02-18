@@ -8,17 +8,11 @@ import { ClienteService, Cliente } from '../services/cliente.service';
   styleUrls: ['./clientes.component.css'],
 })
 export class ClientesComponent implements OnInit {
-  cliente: Cliente = {
-    nome: '',
-    saldo: 0,
-    data: new Date(),
-  };
+  cliente: Cliente = new Cliente();
   mensagemCadastro = false;
 
-  @ViewChild(ModalConfirmacaoComponent) //pegar uma referencia de um elemento
-  modalConfirmacao: ModalConfirmacaoComponent = new ModalConfirmacaoComponent(
-    new ElementRef('')
-  );
+  @ViewChild(ModalConfirmacaoComponent)
+  modalConfirmacao: ModalConfirmacaoComponent = new ModalConfirmacaoComponent;
 
   constructor(public clienteService: ClienteService) {}
 
@@ -27,6 +21,7 @@ export class ClientesComponent implements OnInit {
   onNovoCliente(cliente: Cliente) {
     this.cliente = cliente;
     this.mensagemCadastro = true;
+    this.cliente = new Cliente();
   }
 
   editarCliente(cliente: Cliente) {

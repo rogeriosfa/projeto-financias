@@ -10,6 +10,7 @@ import { SaldoColorDirective } from './directives/saldo-color.directive';
 import { AlertasComponent } from './componentes/alertas/alertas.component';
 import { ModalConfirmacaoComponent } from './componentes/modal-confirmacao/modal-confirmacao.component';
 import { FormataValorPipe } from './pipes/formata-valor.pipe';
+import { ModalComponent } from './componentes/modal/modal.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormataValorPipe } from './pipes/formata-valor.pipe';
     SaldoColorDirective,
     AlertasComponent,
     ModalConfirmacaoComponent,
-    FormataValorPipe
+    FormataValorPipe,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

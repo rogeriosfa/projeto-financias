@@ -6,16 +6,21 @@ import {
   EventEmitter,
   ElementRef,
 } from '@angular/core';
-
-declare const $:any;
+import { Modalable } from '../modal/modalable';
 
 @Component({
   selector: 'app-modal-confirmacao',
   templateUrl: './modal-confirmacao.component.html',
   styleUrls: ['./modal-confirmacao.component.css'],
 })
-export class ModalConfirmacaoComponent implements OnInit {
-  constructor(private element: ElementRef) {}
+export class ModalConfirmacaoComponent extends Modalable implements OnInit {
+  constructor() {
+    super();
+  }
+
+  override ngOnInit() {
+    super.ngOnInit();
+  }
 
   @Input()
   titulo: string = '';
@@ -25,23 +30,6 @@ export class ModalConfirmacaoComponent implements OnInit {
 
   @Output()
   onConfirmar: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  ngOnInit(): void {}
-
-  hide() {
-    const divModal = this.getDivModal();
-    $(divModal).hide();
-  }
-
-  show() {
-    const divModal = this.getDivModal();
-    $(divModal).show();
-  }
-
-  private getDivModal(): HTMLElement {
-    const nativeElement: HTMLElement = this.element.nativeElement;
-    return nativeElement.firstChild as HTMLElement;
-  }
 
   confirmar() {
     this.onConfirmar.emit(true);
