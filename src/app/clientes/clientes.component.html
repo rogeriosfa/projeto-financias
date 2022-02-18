@@ -8,7 +8,7 @@
   ></button>
 </app-alertas>
 
-<app-cliente-novo (onSubmit)="onNovoCliente($event)"></app-cliente-novo>
+<app-cliente-novo [cliente]="cliente" (onSubmit)="onNovoCliente($event)"></app-cliente-novo>
 
 <h2>Listagem de nossos clientes:</h2>
 
@@ -21,15 +21,18 @@
   </tr>
   <tr *ngFor="let c of clienteService.clientes">
     <td>{{ c.nome }}</td>
-    <td [appSaldoColor]="c.saldo">{{ c.saldo }}</td>
+    <td [appSaldoColor]="c.saldo">{{ c.saldo | formataValor }}</td>
     <td>{{ c.data }}</td>
     <td>
-      <a href="javascript:void(0)" (click)="editarCliente(cliente)">Editar</a>
+      <a href="javascript:void(0)" (click)="editarCliente(c)">Editar</a>
       |
-      <a href="javascript:void(0)" (click)="excluirCliente(cliente)">Excluir</a>
+      <a href="javascript:void(0)" (click)="excluirCliente(c)">Excluir</a>
     </td>
   </tr>
 </table>
 
-
-<app-modal-confirmacao titulo="Excluir cliente?" mensagem="Deseja realmente excluir {{cliente.nome}}"></app-modal-confirmacao>
+<app-modal-confirmacao
+  (onConfirmar)="confirmarExclusao()"
+  titulo="Exclusão de cliente"
+  mensagem="Deseja realmente excluir?"
+></app-modal-confirmacao>

@@ -9,6 +9,7 @@ import { ClienteNovoComponent } from './cliente-novo/cliente-novo.component';
 import { SaldoColorDirective } from './directives/saldo-color.directive';
 import { AlertasComponent } from './componentes/alertas/alertas.component';
 import { ModalConfirmacaoComponent } from './componentes/modal-confirmacao/modal-confirmacao.component';
+import { FormataValorPipe } from './pipes/formata-valor.pipe';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ModalConfirmacaoComponent } from './componentes/modal-confirmacao/modal
     ClienteNovoComponent,
     SaldoColorDirective,
     AlertasComponent,
-    ModalConfirmacaoComponent
+    ModalConfirmacaoComponent,
+    FormataValorPipe
   ],
   imports: [
     BrowserModule,

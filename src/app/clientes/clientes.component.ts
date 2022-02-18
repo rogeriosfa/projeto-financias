@@ -37,4 +37,8 @@ export class ClientesComponent implements OnInit {
     this.cliente = cliente;
     this.modalConfirmacao.show();
   }
+
+  confirmarExclusao() {
+    this.clienteService.removerCliente(this.cliente);
+  }
 }

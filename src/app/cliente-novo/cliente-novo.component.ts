@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ClienteService, Cliente } from '../services/cliente.service';
 
 @Component({
@@ -7,11 +7,9 @@ import { ClienteService, Cliente } from '../services/cliente.service';
   styleUrls: ['./cliente-novo.component.css'],
 })
 export class ClienteNovoComponent implements OnInit {
-  cliente: Cliente = {
-    nome: '',
-    saldo: 0,
-    data: new Date(),
-  };
+
+  @Input()
+  cliente: Cliente = { nome: '', saldo: 0, data: new Date() };
 
   //retornar novo cliente para outros componentes ou avisar do evento
   @Output()

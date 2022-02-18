@@ -40,11 +40,11 @@ export class ModalConfirmacaoComponent implements OnInit {
 
   private getDivModal(): HTMLElement {
     const nativeElement: HTMLElement = this.element.nativeElement;
-    console.log(nativeElement.firstChild);
     return nativeElement.firstChild as HTMLElement;
   }
 
   confirmar() {
     this.onConfirmar.emit(true);
+    this.hide();
   }
 }
