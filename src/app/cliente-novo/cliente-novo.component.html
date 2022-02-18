@@ -1,0 +1,19 @@
+<form (submit)="adicionar($event)">
+  <div class="row g-3 align-items-center m-top-20">
+    <div class="col-auto">
+      <label class="col-form-label">Nome</label>
+    </div>
+    <div class="col-auto">
+      <input type="text" name="nome" [(ngModel)]="cliente.nome" />
+    </div>
+    <div class="col-auto">
+      <label class="col-form-label">Saldo</label>
+    </div>
+    <div class="col-auto">
+      <input type="number" name="saldo" [(ngModel)]="cliente.saldo" />
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-primary" type="submit">+ Adicionar</button>
+    </div>
+  </div>
+</form>
